@@ -1,0 +1,22 @@
+{
+    "name": "ninimarket/minimarket_gesa",
+    "description": "creacion de una tienda online",
+    "type": "projec",
+    "license": "MIT",
+    "authors": [
+        {
+          "name": "RIVEROS FERNANDEZ JOSIAS"   
+        },
+          {
+            "name": "ROJAS MATIAS JOSE"
+         }
+    ],
+    "require":{
+
+    },
+    "autoload": {
+      "psr-4": {
+          "Minimarket\\": "src/"
+      }
+  }
+}
