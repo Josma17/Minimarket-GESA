@@ -16,6 +16,7 @@ class Productos{
         ));
         
     }
+    
     public function registrar($_params){
         $sql = "INSERT INTO `productos`(`titulo`, `descripcion`, `foto`, `precio`, `categoria_ID`, `fecha`) 
         VALUES (:titulo,:descripcion,:foto,:precio,:categoria_ID,:fecha)";

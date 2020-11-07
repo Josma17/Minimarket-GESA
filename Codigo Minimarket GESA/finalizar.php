@@ -45,48 +45,39 @@ require 'funciones.php';
     </nav>
 
     <div class="container" id="main">
-        <div class="row">
-            <?php
-              require 'vendor/autoload.php';
-              $productos = new Minimarket\Productos;
-              $info_productos = $productos->mostrar();
-              $cantidad = count($info_productos);
-              if($cantidad > 0){
-                for($x =0; $x < $cantidad; $x++){
-                  $item = $info_productos[$x];
-            ?>
-              <div class="col-md-3">
-                  <div class="panel panel-default">
-                    <div class="panel-heading">
-                      <h1 class="text-center titulo-producto"><?php print $item['titulo'] ?></h1>  
-                    </div>
-                    <div class="panel-body">
-                      <?php
-                          $foto = 'upload/'.$item['foto'];
-                          if(file_exists($foto)){
-                        ?>
-                          <img src="<?php print $foto; ?>" class="img-responsive">
-                      <?php }else{?>
-                        <img src="assets/imagenes/not-found.jpg" class="img-responsive">
-                      <?php }?>
-                    </div>
-                    <div class="panel-footer">
-                        <a href="carrito.php?ID=<?php print $item['ID'] ?>" class="btn btn-success btn-block">
-                          <span class="glyphicon glyphicon-shopping-cart"></span> Comprar
-                        </a>
-                    </div>
-                  </div>
-              
-              
-              </div>
-          <?php
-                }
-            }else{?>
-              <h4>NO HAY REGISTROS</h4>
-
-          <?php }?>
-
+        <div class="main-form">
+            <div class="row">
+                <div class="col-md-12">
+                    <fieldset>
+                        <legend>Completar Datos</legend>
+                            <form action="completar_pedido.php" method="post">
+                                <div class="form-group">
+                                    <label>Nombre</label>
+                                    <input type="text" class="form-control" name="nombre" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Apellidos</label>
+                                    <input type="text" class="form-control" name="apellidos" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Correo</label>
+                                    <input type="email" class="form-control" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Teléfono</label>
+                                    <input type="text" class="form-control" name="telefono" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Comentario</label>
+                                    <textarea name="comentario" class="form-control"  rows="4"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-block">Enviar</button>
+                            </form>
+                    </fieldset>
+                </div>
+            </div>
         </div>
+        
       
 
     </div> <!-- /container -->

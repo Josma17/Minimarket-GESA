@@ -33,7 +33,7 @@ require '../../vendor/autoload.php';
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Minimarket Gesa</title>
+    <title>MINIMARKET GESA</title>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
@@ -52,7 +52,7 @@ require '../../vendor/autoload.php';
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="../dashboard.php">Minimarket Gesa</a>
+          <a class="navbar-brand" href="../dashboard.php">MINIMARKET GESA</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav pull-right">
@@ -81,7 +81,7 @@ require '../../vendor/autoload.php';
       <div class="row">
         <div class="col-md-12">
           <fieldset>
-            <legend>Datos de la Productos</legend>
+            <legend>Actualizar Productos</legend> 
             <form method="POST" action="../acciones.php" enctype="multipart/form-data" >
               <input type="hidden" name="ID" value="<?php print $resultado['ID'] ?>">
               <div class="row">

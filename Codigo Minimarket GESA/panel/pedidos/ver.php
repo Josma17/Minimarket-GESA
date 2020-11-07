@@ -32,11 +32,11 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav pull-right">
-            <li>
-              <a href="../pedidos/index.php" class="btn">Pedidos</a>
-            </li> 
             <li class="active">
-              <a href="index.php" class="btn">Productos</a>
+              <a href="index.php" class="btn">Pedidos</a>
+            </li> 
+            <li>
+              <a href="../peliculas/index.php" class="btn">Peliculas</a>
             </li>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">admin <span class="caret"></span></a>
@@ -54,66 +54,89 @@
     </nav>
 
     <div class="container" id="main">
-        <div class="row">
+    <div class="row">
           <div class="col-md-12">
-              <div class="pull-right">
-                <a href="form_registrar.php" class="btn btn-primary"><span class="glyphicon glyphicon-plus">
-                </span> Nuevo</a>
-              </div>
-          </div>
-        </div>
+            <fieldset>
+                <?php
+                    require '../../vendor/autoload.php';
+                    $id = $_GET['id'];
+                    $pedido = new Minimarket\Pedido;
 
-        <div class="row">
-          <div class="col-md-12">
-             <fieldset>
-              <legend>Listado de Productos</legend>
+                    $info_pedido = $pedido->mostrarPorId($id);
+
+                    $info_detalle_pedido = $pedido->mostrarDetallePorIdPedido($id);
+
+                ?>
+
+
+                <legend>Información de la Compra</legend>
+                <div class="form-group">
+                    <label>Nombre</label>
+                    <input value="<?php print $info_pedido['nombre'] ?>" type="text" class="form-control" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Apellidos</label>
+                    <input value="<?php print $info_pedido['apellidos'] ?>" type="text" class="form-control" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input value="<?php print $info_pedido['email'] ?>" type="text" class="form-control" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Fecha</label>
+                    <input value="<?php print $info_pedido['fecha'] ?>" type="text" class="form-control" readonly>
+                </div>
+               
+
+
+                <hr>
+                    Productos Comprados
+                <hr>
                 <table class="table table-bordered">
                   <thead>
                     <tr>
                       <th>#</th>
                       <th>Titulo</th>
-                      <th>Categoria</th>
+                      <th>Foto</th>
                       <th>Precio</th>
-                      <th class="text-center">Foto</th>
-                      <th></th>
+                      <th>Cantidad</th>
+                      <th>
+                          Total
+                      </th>
                     </tr>
                   </thead>
                   <tbody> 
                     <?php
-                      require '../../vendor/autoload.php';
-                      $productos = new Minimarket\Productos;
-                      $info_productos = $productos->mostrar();
-
+                   
                     
-                      $cantidad = count($info_productos);
+                      $cantidad = count($info_detalle_pedido);
                       if($cantidad > 0){
                         $c=0;
                       for($x =0; $x < $cantidad; $x++){
                         $c++;
-                        $item = $info_productos[$x];
+                        $item = $info_detalle_pedido[$x];
+                        $total = $item['precio'] * $item['cantidad'];
                     ?>
 
 
                     <tr>
                       <td><?php print $c?></td>
                       <td><?php print $item['titulo']?></td>
-                      <td><?php print $item['nombre']?></td>
-                      <td><?php print $item['precio']?></td>
-                      <td class="text-center">
-                        <?php
+                      <td>
+                      <?php
                           $foto = '../../upload/'.$item['foto'];
                           if(file_exists($foto)){
                         ?>
-                          <img src="<?php print $foto; ?>" width="50">
+                          <img src="<?php print $foto; ?>" width="35">
                       <?php }else{?>
                           SIN FOTO
                       <?php }?>
                       </td>
-                      <td class="text-center">
-                        <a href="../acciones.php?ID=<?php print $item['ID'] ?>" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></a>
-                        <a href="form_actualizar.php?id=<?php print $item['ID']  ?>" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit"></span></a>
-                      </td>
-                    
+                      <td><?php print $item['precio']?> PEN</td>
+                      <td><?php print $item['cantidad']?></td>
+                    <td>
+                    <?php print $total?>
+                    </td>
                     </tr>
 
                     <?php
@@ -125,21 +148,51 @@
                       <td colspan="6">NO HAY REGISTROS</td>
                     </tr>
 
-                    <?php }?> 
+                    <?php }?>
+                  
                   
                   </tbody>
 
                 </table>
-             </fieldset>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Total Compra</label>
+                        <input value="<?php print $info_pedido['total'] ?>" type="text" class="form-control" readonly>
+                    </div>
+                </div>
+                
+            </fieldset>
+            <div class="pull-left">
+                <a href="index.php" class="btn btn-default hidden-print">Cancelar</a>
+            </div>
+
+            <div class="pull-right">
+                <a href="javascript:;" id="btnImprimir" class="btn btn-danger hidden-print">Imprimir</a>
+            </div>
+
+            
+             
           </div>
         </div>
 
+
     </div> <!-- /container -->
+
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="../../assets/js/jquery.min.js"></script>
     <script src="../../assets/js/bootstrap.min.js"></script>
+    <script>
+        $('#btnImprimir').on('click',function(){
 
+            window.print();
+
+            return false;
+
+        })
+                        
+    </script>
   </body>
 </html>
