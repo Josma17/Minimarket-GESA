@@ -35,3 +35,13 @@
 	margin: 0;
 	font-weight: bold;
 }
+
+.jumbotron{
+	position: relative;
+	background-image: url(upload/banner2.jpg);
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	overflow: hidden;
+}
+/*=======================================*/

@@ -14,6 +14,9 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/estilos.css">
+    <link rel="icon" href="../imagenes/Minimarket.ico">
+    
+
   </head>
 
   <body>
@@ -65,12 +68,16 @@
 
     </div> <!-- /container -->
 
-
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="../assets/js/jquery.min.js"></script>
     <script src="../assets/js/bootstrap.min.js"></script>
+ 
+    
+    <script >
+      
+    </script>
 
   </body>
 </html>

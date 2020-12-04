@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 4.9.5
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 07-11-2020 a las 15:20:43
--- Versión del servidor: 10.4.14-MariaDB
--- Versión de PHP: 7.4.11
+-- Servidor: localhost:3306
+-- Tiempo de generación: 04-12-2020 a las 19:03:51
+-- Versión del servidor: 10.3.16-MariaDB
+-- Versión de PHP: 7.3.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `minimarket_gesa`
+-- Base de datos: `id15543365_minimarket_gesa`
 --
 
 -- --------------------------------------------------------
@@ -60,10 +61,17 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`ID`, `nombre`, `apellidos`, `email`, `telefono`, `comentario`) VALUES
-(1, 'DAMARIS ', 'Rodrigues ', 'damaris90_2@hotmail.com', '922355434', ''),
-(2, 'Angel', 'Rodrigues Puma', 'junnior_river4@hotmail.com', '922355451', ''),
-(3, '55', 'Rodrigues ', 'junnior_river4@hotmail.com', '922355434', ''),
-(4, 'Angel', 'Huaman R.', 'junnior_river4@hotmail.com', '922355451', '');
+(1, 'Angel ', 'Rodrigues Torres', 'angel@gmail.com', '922355434', ''),
+(2, 'Maria ', 'Fernandez G.', 'maria@gmail.com', '980562123', ''),
+(3, 'Marta', 'Palomino Contreras', 'marta@htomail.com', '985631546', ''),
+(4, 'Felipe', 'Ramos R.', 'felipe@hotmail.com', '963987753', ''),
+(5, 'Juan ', 'River Molina', 'juan@gmail.com', '987741159', ''),
+(6, 'Adrian ', 'Quispe Mala', 'adrian@gmail.com', '987753123', ''),
+(7, 'Teresa', 'Donaires Torres', 'teresa@hotmail.com', '9235364', ''),
+(8, 'josetti ', 'Valdemar T.', 'josetti_34@hotmail.com', '987123456', ''),
+(9, 'Carlos ', 'Huaman Q.', 'carlos_hua@hotmail.com', '951753123', ''),
+(10, 'que chu te importa', 'prro', 'pendejo@ptoquelolea.com', 'no se :v', 'xd'),
+(11, 'Norma ', 'Basquees C.', 'norma_23@hotmail.com', '963789741', '');
 
 -- --------------------------------------------------------
 
@@ -85,13 +93,35 @@ CREATE TABLE `detalle_pedidos` (
 --
 
 INSERT INTO `detalle_pedidos` (`ID`, `pedido_ID`, `producto_ID`, `precio`, `cantidad`, `estado`) VALUES
-(1, 1, 20, '23', 1, 1),
-(2, 2, 19, '25', 10, 1),
-(3, 2, 22, '30', 1, 1),
-(4, 3, 20, '23', 2, 1),
-(5, 3, 19, '25', 3, 1),
-(6, 4, 20, '23', 2, 1),
-(7, 4, 17, '12', 1, 1);
+(1, 1, 16, 12, 1, 1),
+(2, 1, 11, 7, 1, 1),
+(3, 1, 4, 22, 1, 1),
+(4, 1, 7, 10, 1, 1),
+(5, 2, 7, 10, 2, 1),
+(6, 2, 1, 28, 2, 1),
+(7, 2, 17, 16, 1, 1),
+(8, 2, 10, 10, 1, 1),
+(9, 2, 9, 5, 1, 1),
+(10, 3, 9, 5, 1, 1),
+(11, 4, 4, 22, 1, 1),
+(12, 4, 12, 24, 1, 1),
+(13, 4, 14, 20, 1, 1),
+(14, 4, 1, 28, 1, 1),
+(15, 4, 13, 4, 1, 1),
+(16, 4, 16, 12, 2, 1),
+(17, 5, 6, 5, 1, 1),
+(18, 5, 13, 4, 1, 1),
+(19, 5, 5, 15, 3, 1),
+(20, 6, 16, 12, 1, 1),
+(21, 7, 12, 24, 1, 1),
+(22, 8, 11, 7, 1, 1),
+(23, 9, 11, 7, 1, 1),
+(24, 9, 13, 4, 2, 1),
+(25, 10, 16, 12, 1, 1),
+(26, 11, 16, 12, 2, 1),
+(27, 11, 15, 9, 1, 1),
+(28, 11, 14, 20, 1, 1),
+(29, 11, 4, 22, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -112,10 +142,17 @@ CREATE TABLE `pedidos` (
 --
 
 INSERT INTO `pedidos` (`ID`, `cliente_ID`, `total`, `fecha`, `estado`) VALUES
-(1, 1, '23', '2020-11-06', 1),
-(2, 2, '280', '2020-11-07', 1),
-(3, 3, '121', '2020-11-07', 1),
-(4, 4, '58', '2020-11-07', 1);
+(1, 1, 51, '2020-12-03', 1),
+(2, 2, 107, '2020-12-03', 1),
+(3, 3, 5, '2020-12-03', 1),
+(4, 4, 122, '2020-12-03', 1),
+(5, 5, 54, '2020-12-03', 1),
+(6, 6, 12, '2020-12-03', 1),
+(7, 7, 24, '2020-12-03', 1),
+(8, 8, 7, '2020-12-03', 1),
+(9, 9, 15, '2020-12-03', 1),
+(10, 10, 12, '2020-12-03', 1),
+(11, 11, 75, '2020-12-04', 1);
 
 -- --------------------------------------------------------
 
@@ -139,15 +176,24 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`ID`, `titulo`, `descripcion`, `foto`, `precio`, `categoria_ID`, `fecha`, `estado`) VALUES
-(7, 'CLOROX 3', 'Tradicional Galonera 5L', 'a1.jpg', '25', 1, '2020-10-23', 1),
-(8, ' CIF', 'Limpiador de Baño CIF Limpieza Fácil Gatillo 500ml', 'a4.jpg', '20', 1, '2020-10-23', 1),
-(10, 'Colin', 'Buy Colin Glass Cleaner 500 ml ', 'a12.jpg', '30', 1, '2020-10-23', 1),
-(15, 'Trapeador Giratorio 5', 'afll', 'a5.jpg', '23', 1, '2020-10-30', 1),
-(16, 'producto4', 'asd', 'a6.jpg', '30', 1, '2020-10-30', 1),
-(17, 'producto7', 'qwqwe', 'a2.jpg', '12', 1, '2020-10-30', 1),
-(19, 'producto5', 'hghjkl', 'a10.jpg', '25', 1, '2020-10-30', 1),
-(20, 'Acondicionador Johnson\'s Baby', 'Acondicionador Johnson\'s Baby Original Frasco 400 ml', 's7.jpg', '23', 1, '2020-10-31', 1),
-(22, 'Downy Frasco', 'Suavizante de Ropa Aroma Floral Downy Frasco 2.8 lt', 'a3.jpg', '30', 1, '2020-10-31', 1);
+(1, 'MARSELLA', 'Detergente en Polvo MARSELLA Aromaterapia Petalos Relajantes Bolsa 4Kg', '1.jpg', 28, 1, '2020-12-02', 1),
+(2, 'NOVA', 'Papel Toalla NOVA Clásica Mega Rollo Paquete 4un', '4.jpg', 8, 1, '2020-12-03', 1),
+(3, 'SAPOLIO', 'Lejía SAPOLIO Galonera 5L', '5.jpg', 10, 1, '2020-12-03', 1),
+(4, 'SUAVE', 'Papel Higiénico SUAVE Rindemax Doble Hoja Paquete 40un', '6.jpg', 22, 1, '2020-12-03', 1),
+(5, 'AYUDIN', 'Lavavajillas Líquido AYUDÍN Limón Botella 1.2L', '7.jpg', 15, 1, '2020-12-03', 1),
+(6, 'BOLÍVAR', 'Jabón para Ropa BOLIVAR Glicerina 210g Paquete 2un', '8.jpg', 5, 1, '2020-12-03', 1),
+(7, 'CLOROX', 'Papel Higiénico SUAVE Cuidado Completo Doble Hoja Paquete 40un', '10.jpg', 10, 1, '2020-12-03', 1),
+(8, 'ELITE', 'Servilletas de Papel ELITE Dobladas en 4 Paquete 300un', '11.jpg', 9, 1, '2020-12-03', 1),
+(9, 'BOREAL', 'Papel Toalla BOREAL Doble Hoja Paquete 3un', '12.jpg', 5, 1, '2020-12-03', 1),
+(10, 'BOREAL', 'Limpiador Multiuso BOREAL Lavanda Galonera 4L', '14.jpg', 10, 1, '2020-12-03', 1),
+(11, 'DKASA', 'Limpiatodo DKASA Aroma Bebé Contenido 1800ml', '15.jpg', 7, 1, '2020-12-03', 1),
+(12, 'BOLÍVAR', 'Detergente en Polvo BOLIVAR Active Duo Bolsa 2.6Kg', '17.jpg', 24, 1, '2020-12-03', 1),
+(13, 'SCOTT', 'Paño Reutilizable SCOTT Limpieza Diaria Paquete 7un   ', '21.jpg', 4, 1, '2020-12-03', 1),
+(14, 'DOWNY', 'Suavizante DOWNY Libre Enjuague Floral Galonera 2.8L', '25.jpg', 20, 1, '2020-12-03', 1),
+(15, 'SCOTCH BRITE', 'Esponja parrillas Scoth Brite x2un', '26.jpg', 9, 1, '2020-12-03', 1),
+(16, 'CIF', 'Limpia Vidrios CIF Gatillo 500ml', '30.jpg', 12, 1, '2020-12-03', 1),
+(17, 'ETERNA', 'Pack ETERNA Limpiavidrios Botella 500ml+ Cepillo + 1 Par de Guantes', '31.jpg', 16, 1, '2020-12-03', 1),
+(18, 'MARSELLA', 'Detergente en Polvo MARSELLA Aromaterapia Bolsa 780g', '3.jpg', 7, 1, '2020-12-04', 1);
 
 -- --------------------------------------------------------
 
@@ -167,7 +213,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`ID`, `nombre_usuario`, `clave`, `estado`) VALUES
-(1, 'junnior', 'shajoxj44', 1),
+(1, 'id15543365_junnior', 'H(m#XBnK{0-kR5X_', 1),
 (2, 'admin', '123', 1);
 
 --
@@ -224,25 +270,25 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_pedidos`
 --
 ALTER TABLE `detalle_pedidos`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

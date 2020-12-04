@@ -18,6 +18,7 @@ require 'funciones.php';
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/estilos.css">
+    <link rel="icon" href="imagenes/Minimarket.ico">
   </head>
 
   <body>

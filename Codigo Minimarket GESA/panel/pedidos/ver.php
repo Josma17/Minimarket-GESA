@@ -1,4 +1,9 @@
+<?php
+session_start();
 
+if(!isset($_SESSION['usuario_info']) OR empty( $_SESSION['usuario_info']))
+    header('Location: ../index.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,6 +19,7 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../assets/css/estilos.css">
+    <link rel="icon" href="../../imagenes/Minimarket.ico">
   </head>
 
   <body>
@@ -36,12 +42,12 @@
               <a href="index.php" class="btn">Pedidos</a>
             </li> 
             <li>
-              <a href="../peliculas/index.php" class="btn">Peliculas</a>
+              <a href="index.php" class="btn">Productos</a>
             </li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">admin <span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php print $_SESSION['usuario_info']['nombre_usuario'] ?><span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Salir</a></li>
+                    <li><a href="../cerrar_session.php">Salir</a></li>
                 </ul>
             </li>
           </ul>
@@ -96,7 +102,7 @@
                   <thead>
                     <tr>
                       <th>#</th>
-                      <th>Titulo</th>
+                      <th>Nombre</th>
                       <th>Foto</th>
                       <th>Precio</th>
                       <th>Cantidad</th>
@@ -107,8 +113,6 @@
                   </thead>
                   <tbody> 
                     <?php
-                   
-                    
                       $cantidad = count($info_detalle_pedido);
                       if($cantidad > 0){
                         $c=0;
@@ -117,8 +121,6 @@
                         $item = $info_detalle_pedido[$x];
                         $total = $item['precio'] * $item['cantidad'];
                     ?>
-
-
                     <tr>
                       <td><?php print $c?></td>
                       <td><?php print $item['titulo']?></td>
@@ -169,9 +171,6 @@
             <div class="pull-right">
                 <a href="javascript:;" id="btnImprimir" class="btn btn-danger hidden-print">Imprimir</a>
             </div>
-
-            
-             
           </div>
         </div>
 

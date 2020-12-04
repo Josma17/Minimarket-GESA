@@ -1,3 +1,9 @@
+<?php
+session_start();
+
+if(!isset($_SESSION['usuario_info']) OR empty( $_SESSION['usuario_info']))
+    header('Location: ../index.php');
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +20,7 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../assets/css/estilos.css">
+    <link rel="icon" href="../../imagenes/Minimarket.ico">
   </head>
 
   <body>
@@ -39,9 +46,9 @@
               <a href="index.php" class="btn">Productos</a>
             </li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">admin <span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php print $_SESSION['usuario_info']['nombre_usuario'] ?><span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Salir</a></li>
+                    <li><a href="../cerrar_session.php">Salir</a></li>
                 </ul>
             </li>
           </ul>
@@ -62,7 +69,7 @@
               <div class="row">
                   <div class="col-md-6">
                       <div class="form-group">
-                          <label>Titulo</label>
+                          <label>Nombre</label>
                           <input type="text" class="form-control" name="titulo" required>
                       </div>
                   </div>
